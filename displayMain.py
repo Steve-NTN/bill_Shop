@@ -97,7 +97,7 @@ class MainApplication(Frame):
     
     def messageToAdd(self):
         m = messagebox.askokcancel("Thông báo","Mã sản phẩm chưa có. Thêm vào?")
-        print("đầu cặc" if m else "đầu khấc")
+        print("Add Product API" if m els "Cancle")
 
 if __name__ == "__main__":
     root = Tk()
