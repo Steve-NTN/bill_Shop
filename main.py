@@ -50,5 +50,28 @@ def getTotal(index):
     cursor.execute(sql, val)
     return sum([i[0] for i in cursor.fetchall()])
 
+# Insert product
+def insertProduct(id, name, price):
+    cursor = connection.cursor()
+    sql = "INSERT INTO `products`(`id`, `name`, `price`) VALUES (%s,%s,%s)"
+    val = (id, name, price)
+    cursor.execute(sql, val)
+    connection.commit()
+
+# Delete product 
+def deleteProduct(id):
+    cursor = connection.cursor()
+    sql = "DELETE FROM `products` WHERE products.id = %s"
+    val = (id)
+    cursor.execute(sql, val)
+    connection.commit()
+# Update product 
+def updateProduct(id, name, price):
+    cursor = connection.cursor()
+    sql = "UPDATE `products` SET `id`=%s,`name`=%s,`price`=%s WHERE `id`=%s"
+    val = (id, name, price, id)
+    cursor.execute(sql, val)
+    connection.commit()
+
 if __name__ == "__main__":
-    print(getTotal(1))
+    updateProduct('4', "bot mi", '7000')
